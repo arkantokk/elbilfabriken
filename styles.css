@@ -1,3 +1,9 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     margin: 0;
     min-height: 100vh;
@@ -5,13 +11,14 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 32px;
 }
 
 h1 {
-    margin: 0 0 24px;
+    margin: 0;
+    color: black;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    color: black;
 }
 
 .area-choice {
@@ -21,7 +28,7 @@ h1 {
     width: min(580px, 90vw);
     padding: 20px;
     border-radius: 28px;
-    background: black;
+    background: rgba(15, 23, 42, 0.92);
     box-shadow: 0 24px 60px rgba(15, 23, 42, 0.35);
 }
 
@@ -29,5 +36,72 @@ h1 {
     min-height: 130px;
     border: none;
     border-radius: 20px;
+    color: black;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
+.area-button:active{
+    transform: translateY(5px);
+}
+
+.user-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: min(540px, 90vw);
+    padding: 32px;
+    border-radius: 24px;
+    background: rgba(30, 41, 59, 0.95);
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.35);
+    border: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #e2e8f0;
+    letter-spacing: 0.01em;
+}
+
+.form-group input,
+.form-group select {
+    padding: 12px 16px;
+    border: 2px solid rgba(148, 163, 184, 0.2);
+    border-radius: 12px;
+    background: rgba(15, 23, 42, 0.8);
+    color: #f8fafc;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.2s ease;
+}
+
+.form-group input::placeholder {
+    color: rgba(226, 232, 240, 0.5);
+}
+
+.submit-button {
+    color: black;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 12px;
+}
