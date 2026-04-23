@@ -26,6 +26,42 @@
             Havn
         </button>
     </div>
+
+    <form class="user-inputs">
+        <div class="form-group">
+            <label for="size">Hvor stor skal den være?</label>
+            <input id="size" type="text" placeholder="Skriv inn størrelse...">
+        </div>
+        
+        <div class="form-group">
+            <label for="luftFiltrasjon">Skal fabrikken ha luft filtrasjon?</label>
+            <select name="luftFiltrasjon" id="luftFiltrasjon">
+                <option value="">-- Velg --</option>
+                <option value="ja">Ja</option>
+                <option value="nei">Nei</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="avfall">Hvordan skal avfall håndteres?</label>
+            <select name="avfall" id="avfall">
+                <option value="">-- Velg --</option>
+                <option value="ja">Ja</option>
+                <option value="nei">Nei</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="kilde">Hvor skal råvarene og naturressursene komme fra?</label>
+            <select name="kilde" id="kilde">
+                <option value="">-- Velg --</option>
+                <option value="ja">Ja</option>
+                <option value="nei">Nei</option>
+            </select>
+        </div>
+        
+        <button type="submit" class="submit-button">Send inn</button>
+    </form>
 </body>
 
 </html>
