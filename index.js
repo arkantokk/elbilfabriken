@@ -87,8 +87,19 @@ function get_results(liste) {
         utslippmin = utslipp - gjennomsnittsutslipp
         liste_over_results.push(` and your factory put out ${utslipp} ton CO2 per year` + ` thats ${utslippmin} ton more than the average factory, most factories put out ${gjennomsnittsutslipp} ton CO2 per year...`)
     }
-    text.textContent = textcontent
     return liste_over_results
 }
 
+function use_results()
+{
 
+    const results = JSON.parse(localStorage.getItem("factoryResults")); 
+    if (results)
+    {
+        const text1=document.getElementById("textcontent1")
+        text1.textContent =results[0]
+        const text2=document.getElementById("textcontent2")
+        text2.textContent =results[1]
+        const text3=document.getElementById("textcontent3")
+        text3.textContent =results[2] 
+    }}
