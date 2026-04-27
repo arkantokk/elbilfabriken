@@ -10,58 +10,61 @@
 
 <body>
     <h1>test</h1>
+    
+    <main class="container">
+        <div class="area-choice">
+            <button id="by" class="area-button">
+                City
+            </button>
+            <button id="mountain" class="area-button">
+                Mountain
+            </button>
+            <button id="forest" class="area-button">
+                Forest
+            </button>
+        </div>
 
+        <form class="user-inputs">
+            <div class="form-group">
+                <label for="size">Write size of the factory</label>
+                <input id="size" type="text" placeholder="Write in m2...">
+            </div>
 
-    <div class="area-choice">
-        <button id="by" class="area-button">
-            City
-        </button>
-        <button id="mountain" class="area-button">
-            Mountain
-        </button>
-        <button id="forest" class="area-button">
-            Forest
-        </button>
-        <button id="water" class="area-button">
-            Lake
-        </button>
-    </div>
+            <div class="form-group">
+                <label for="luftFiltrasjon">Sould the factory have air-filtrasjon?</label>
+                <select name="luftFiltrasjon" id="luftFiltrasjon">
+                    <option value="">-- Choose --</option>
+                    <option value="ja">Yes</option>
+                    <option value="nei">No</option>
+                </select>
+            </div>
 
-    <form class="user-inputs">
-        <div class="form-group">
-            <label for="size">Where should it be placed?</label>
-            <input id="size" type="text" placeholder="Write in size...">
+            <div class="form-group">
+                <label for="avfall">How should the waste be handled?</label>
+                <select name="avfall" id="avfall">
+                    <option value="">-- Choose --</option>
+                    <option value="ja">Yes</option>
+                    <option value="nei">No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="kilde">Where should the raw materials and natural resources come from?</label>
+                <select name="kilde" id="kilde">
+                    <option value="">-- Choose --</option>
+                    <option value="ja">Yes</option>
+                    <option value="nei">No</option>
+                </select>
+            </div>
+
+            <button type="submit" class="submit-button" id="submit_btn">Send inn</button>
+        </form>
+
+        <div id="results-container" class="results-container">
+            <p id="resultsinfo"></p>
         </div>
-        
-        <div class="form-group">
-            <label for="luftFiltrasjon">Sould the factory have air-filtrasjon?</label>
-            <select name="luftFiltrasjon" id="luftFiltrasjon">
-                <option value="">-- Choose --</option>
-                <option value="ja">Yes</option>
-                <option value="nei">No</option>
-            </select>
-        </div>
-        
-        <div class="form-group">
-            <label for="avfall">How should the waste be handled?</label>
-            <select name="avfall" id="avfall">
-                <option value="">-- Velg --</option>
-                <option value="ja">Yes</option>
-                <option value="nei">No</option>
-            </select>
-        </div>
-        
-        <div class="form-group">
-            <label for="kilde">Where should the raw materials and natural resources come from?</label>
-            <select name="kilde" id="kilde">
-                <option value="">-- Choose --</option>
-                <option value="ja">Yes</option>
-                <option value="nei">No</option>
-            </select>
-        </div>
-        
-        <button id="resultsbutton" type="submit" class="submit-button" id="submit_btn">Send inn</button>
-    </form>
+    </main>
 </body>
-<script src="java.js"></script>
+<script src="index.js"></script>
+
 </html>
