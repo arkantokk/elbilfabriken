@@ -1,7 +1,6 @@
 const button =document.getElementById("test1")
 const button2 =document.getElementById("test2")
 const button3 =document.getElementById("test3")
-const button4 =document.getElementById("test4")
 var choice1;
 const gjennomsnittsutslipp = 150;
 
@@ -14,9 +13,7 @@ button2.addEventListener("click", () => {
 button3.addEventListener("click", () => {
     choice1=button3;
 });
-button4.addEventListener("click", () => {
-    choice1=button3;
-});
+
 
 const resultbtn = document.getElementById("resultsbutton")
 
@@ -24,6 +21,9 @@ resultbtn.addEventListener("click", () => {
 var liste_over_valg=[]
 liste_over_valg.push(choice1)
 var results = get_results(liste_over_valg)
+localStorage.setItem("factoryResults", JSON.stringify(results));
+   
+window.location.href = "results.html";
 });
 
 function get_results(liste){
@@ -69,15 +69,17 @@ function get_results(liste){
     }
     else
     {
-        liste_over_results.push(` and your factory put out ${utslipp} ton CO2 per year` + ` thats ${utslippmin} ton less than the average factory, most factories put out ${gjennomsnittsutslipp} ton CO2 per year...`)
+        utslippmin=utslipp-gjennomsnittsutslipp
+        liste_over_results.push(` and your factory put out ${utslipp} ton CO2 per year` + ` thats ${utslippmin} ton more than the average factory, most factories put out ${gjennomsnittsutslipp} ton CO2 per year...`)
     }
     text.textContent = textcontent
     return liste_over_results
 }
 document.addEventListener("DOMContentLoaded", () => {
-const text2=document.getElementById("textcontent1")
-text1.textContent =results[0]
-const text2=document.getElementById("textcontent2")
-text2.textContent =results[1]
-const text3=document.getElementById("textcontent3")
-text3.textContent =results[3] })
+    const results = JSON.parse(localStorage.getItem("factoryResults"));
+    const text2=document.getElementById("textcontent1")
+    text1.textContent =results[0]
+    const text2=document.getElementById("textcontent2")
+    text2.textContent =results[1]
+    const text3=document.getElementById("textcontent3")
+text3.textContent =results[2] })
