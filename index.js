@@ -42,46 +42,43 @@ submitButton.addEventListener("click", (e) => {
     const resultsContainer = document.getElementById("results-container");
     resultsContainer.classList.add("active");
 
+    localStorage.setItem("factoryResults", JSON.stringify(results))
+    window.location.href = "results.html"
 });
 
 function get_results(liste) {
     var utslipp = 0
     var fabrikkpris = 0
     var text = document.getElementById("resultsinfo")
-    textcontent = ""
     var liste_over_results = []
     var label = document.getElementById("size")
     var size = parseInt(label.value)
     if (liste[0] == button) {
         liste_over_results.push(`you killed ${3000 * size} rabbits with your factory :( `)
-        textcontent += `you killed ${3000 * size} rabbits with your factory :( `
+
         utslipp += 100
         fabrikkpris += 100000
     }
     if (liste[0] == button2) {
         liste_over_results.push(`you killed ${8000 * size} rabbits with your factory :( `)
-        textcontent += "You killed 8000 rabbits with your factory :( "
+
         utslipp += 200
         fabrikkpris += 200000
     }
     if (liste[0] == button3) {
         liste_over_results.push(`you killed ${100 * size} rabbits with your factory :( `)
-        textcontent += "You killed 100 rabbits with your factory :( "
+
         utslipp += 10
         fabrikkpris += 50000
     }
 
     selector1 = document.getElementById("results-container")
-    // textcontent += selector1.value it creates bug 
     liste_over_results.push(selector1.value)
 
-    textcontent += ` and cost you ${fabrikkpris}kr` //vet ikke hvor viktig det er å inkludere pris? men inkluderte slik at vi har muligheten
-    textcontent += ` and your factory put out ${utslipp} ton CO2 per year`
     liste_over_results.push(`and cost you ${fabrikkpris}kr`)
     if (utslipp < gjennomsnittsutslipp) {
         utslippmin = gjennomsnittsutslipp - utslipp
         liste_over_results.push(` and your factory put out ${utslipp} ton CO2 per year` + ` thats ${utslippmin} ton less than the average factory, most factories put out ${gjennomsnittsutslipp} ton CO2 per year...`)
-        textcontent += ` thats ${utslippmin} ton less than the average factory, most factories put out ${gjennomsnittsutslipp} ton CO2 per year...`
     }
     else {
         utslippmin = utslipp - gjennomsnittsutslipp
@@ -101,5 +98,9 @@ function use_results()
         const text2=document.getElementById("textcontent2")
         text2.textContent =results[1]
         const text3=document.getElementById("textcontent3")
-        text3.textContent =results[2] 
+        text3.textContent =results[2]
+        const text4=document.getElementById("textcontent2")
+        text4.textContent =results[3]
+        const text5=document.getElementById("textcontent3")
+        text5.textContent =results[4] 
     }}

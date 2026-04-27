@@ -50,7 +50,7 @@ function get_results(liste){
         utslipp +=10
     }
     
-    let selector1=document.getElementById("selector")
+    let selector1=document.getElementById("kilde")
     liste_over_results.push(selector1.value)
 
     liste_over_results.push(`and cost you ${fabrikkpris}kr`)
