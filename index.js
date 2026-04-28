@@ -6,7 +6,7 @@ const submitButton = document.getElementById("submit_btn") // button that will c
 var choice1;
 
 
-const gjennomsnittsutslipp = 1980000;
+const gjennomsnittsutslipp = 2420000;
 
 button.addEventListener("click", () => {
     choice1 = button;
@@ -126,29 +126,67 @@ Benefits:
         fabrikkpris += 50000
     }
 
-    selector1 = document.getElementById("kilde")
+    selector1 = document.getElementById("luftFiltrasjon")
     if (selector1.value == "yes")
     {
-        liste_over_results.push("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
-        utslipp += 10
-        fabrikkpris += 2500
+        liste_over_results.push("Installing air filtration in a factory transforms the industrial environment into a healthier, more efficient, and compliant workplace by removing hazardous dust, smoke, oil mists, and fumes. A proper system protects both human health and machinery, leading to fewer breakdowns, higher productivity, and lower operating costs.")
+        utslipp += 10*size
+        fabrikkpris += 2500*size
     }
     else if (selector1.value == "no")
     {
-        liste_over_results.push("A")
-        utslipp += 1
-        fabrikkpris += 250
+        liste_over_results.push("Not having air filtration in a factory leads to severe, long-term consequences that affect employee health, equipment longevity, product quality, and regulatory compliance. Without filtration, industrial environments—which are often 5 to 10 times more polluted than outdoor air—become hazardous environments, leading to accumulated dust, oil mist, and toxic contaminants in the air.")
+        utslipp += 1*size
+        fabrikkpris += 250*size
+    }
+    selector2 = document.getElementById("avfall")
+    if (selector2.value == "yes")
+    {
+        liste_over_results.push("you answered yes, but we havent filled in this text yet")
+        utslipp += 10*size
+        fabrikkpris += 2500*size
+    }
+    else if (selector2.value == "no")
+    {
+        liste_over_results.push("you answered no, but we havent filled in this text yet")
+        utslipp += 1*size
+        fabrikkpris += 250*size
+    }
+    selector3 = document.getElementById("kilde")
+    if (selector3.value == "yes")
+    {
+        liste_over_results.push("you answered yes, but we havent filled in this text yet")
+        utslipp += 10*size
+        fabrikkpris += 2500*size
+    }
+    else if (selector3.value == "no")
+    {
+        liste_over_results.push("you answered no, but we havent filled in this text yet")
+        utslipp += 1*size
+        fabrikkpris += 250*size
     }
 
+    if (size < 25000){
+        liste_over_results.push(`Having a small-sized factory—often defined as a micro-factory or small-scale manufacturing unit—presents a mix of strategic advantages and operational constraints. Small factories often benefit from high flexibility and lower overhead, but they face limitations in production capacity, efficiency, and resource access.`)
+    }
+    else if (size > 25000){
+        if (size > 100000){
+            liste_over_results.push(`Its a large factory, but we havent filled in this text yet`)
+        }
+        else {
+            liste_over_results.push(`A medium-sized factory (typically defined as having 50–250 employees and 10,000–50,000 square feet) operates as a balance between the agility of a small workshop and the capability of a large plant, acting as a "middle ground" for growth.`)
+        }
+        
+    }
 
     liste_over_results.push(`and cost you ${fabrikkpris}kr`)
     if (utslipp < gjennomsnittsutslipp) {
         utslippmin = gjennomsnittsutslipp - utslipp
-        liste_over_results.push(` and your factory put out ${utslipp} ton CO2 per year, thats ${utslippmin} ton less than the average factory, most factories put out ${gjennomsnittsutslipp} ton CO2 per year...`)
+        liste_over_results.push(` and your factory put out ${utslipp} ton CO2 per year, thats ${utslippmin} ton less than the average electric car factory, most factories put out ${gjennomsnittsutslipp} ton CO2 per year...`)
     }
     else {
         utslippmin = utslipp - gjennomsnittsutslipp
-        liste_over_results.push(` and your factory put out ${utslipp} ton CO2 per year, thats ${utslippmin} ton more than the average factory, most factories put out ${gjennomsnittsutslipp} ton CO2 per year...`)
+        liste_over_results.push(` and your factory put out ${utslipp} ton CO2 per year, thats ${utslippmin} ton more than the average electric car factory, most factories put out ${gjennomsnittsutslipp} ton CO2 per year...`)
     }
     return liste_over_results
 }
@@ -169,4 +207,8 @@ function use_results()
         text4.textContent =results[3]
         const text5=document.getElementById("textcontent5")
         text5.textContent =results[4] 
+        const text6=document.getElementById("textcontent6")
+        text6.textContent =results[5] 
+        const text7=document.getElementById("textcontent7")
+        text7.textContent =results[6] 
     }}
