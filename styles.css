@@ -1,3 +1,16 @@
+:root {
+    --slate-50: #EFF1ED;
+    --moss-100: #BCBD8B;
+    --moss-300: #AFBC88;
+    --moss-500: #717744;
+    --moss-700: #40531B;
+    --moss-900: #373D20;
+    --forest-500: #618B4A;
+    --earth-500: #766153;
+    --teal-100: #D7F9F1;
+    --teal-600: #7AA095;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -122,9 +135,10 @@ h1 {
 
 .results-container {
     display: none;
-    
+
 }
-.results-container.active{
+
+.results-container.active {
     display: flex;
     max-width: 80%;
     width: min(540px, 90vw);
