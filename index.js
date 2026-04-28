@@ -45,12 +45,13 @@ submitButton.addEventListener("click", (e) => {
     var liste_over_valg = []
     liste_over_valg.push(choice1)
     var results = get_results(liste_over_valg)
-    localStorage.setItem("factoryResults", JSON.stringify(results));
+    //var images = get_images(liste_over_valg)
     
     const resultsContainer = document.getElementById("results-container");
     resultsContainer.classList.add("active");
 
-    localStorage.setItem("factoryResults", JSON.stringify(results))
+    localStorage.setItem("factoryResults", JSON.stringify(results[0]))
+    localStorage.setItem("images", JSON.stringify(results[1]))
     window.location.href = "results.html"
 });
 
@@ -59,6 +60,7 @@ function get_results(liste) {
     var fabrikkpris = 0
     var text = document.getElementById("resultsinfo")
     var liste_over_results = []
+    var img_list = []
     var label = document.getElementById("size")
     var size = parseInt(label.value)
     if (liste[0] == button) {
@@ -74,7 +76,7 @@ Benefits:
 •	Lowers commuting times
 •	Increases tax revenue
  `)
-
+        img_list.push("by.jpg")
         utslipp += 100
         fabrikkpris += 100000
     }
@@ -188,13 +190,14 @@ Benefits:
         utslippmin = utslipp - gjennomsnittsutslipp
         liste_over_results.push(` and your factory put out ${utslipp} ton CO2 per year, thats ${utslippmin} ton more than the average electric car factory, most factories put out ${gjennomsnittsutslipp} ton CO2 per year...`)
     }
-    return liste_over_results
+    var list1og2 = [liste_over_results, img_list]
+    return list1og2
 }
+
 
 function use_results()
 {
-
-    const results = JSON.parse(localStorage.getItem("factoryResults")); 
+    const results = JSON.parse(localStorage.getItem("factoryResults"))
     if (results)
     {
         const text1=document.getElementById("textcontent1")
@@ -211,4 +214,12 @@ function use_results()
         text6.textContent =results[5] 
         const text7=document.getElementById("textcontent7")
         text7.textContent =results[6] 
-    }}
+        
+    }
+    const images = JSON.parse(localStorage.getItem("images"))
+    if (images)
+    {
+        const img1=document.getElementById("img1")
+        img1.src=images[0]
+    }
+}
