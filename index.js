@@ -45,12 +45,13 @@ submitButton.addEventListener("click", (e) => {
     var liste_over_valg = []
     liste_over_valg.push(choice1)
     var results = get_results(liste_over_valg)
-    localStorage.setItem("factoryResults", JSON.stringify(results));
+    //var images = get_images(liste_over_valg)
     
     const resultsContainer = document.getElementById("results-container");
     resultsContainer.classList.add("active");
 
-    localStorage.setItem("factoryResults", JSON.stringify(results))
+    localStorage.setItem("factoryResults", JSON.stringify(results[0]))
+    localStorage.setItem("images", JSON.stringify(results[1]))
     window.location.href = "results.html"
 });
 
@@ -59,6 +60,7 @@ function get_results(liste) {
     var fabrikkpris = 0
     var text = document.getElementById("resultsinfo")
     var liste_over_results = []
+    var img_list = []
     var label = document.getElementById("size")
     var size = parseInt(label.value)
     if (liste[0] == button) {
@@ -74,7 +76,7 @@ Benefits:
 •	Lowers commuting times
 •	Increases tax revenue
  `)
-
+        img_list.push("by.jpg")
         utslipp += 100
         fabrikkpris += 100000
     }
@@ -188,13 +190,94 @@ Benefits:
         utslippmin = utslipp - gjennomsnittsutslipp
         liste_over_results.push(` and your factory put out ${utslipp} ton CO2 per year, thats ${utslippmin} ton more than the average electric car factory, most factories put out ${gjennomsnittsutslipp} ton CO2 per year...`)
     }
-    return liste_over_results
+    var list1og2 = [liste_over_results, img_list]
+    return list1og2
 }
+
+/*function get_images(liste) {
+    var liste_over_imgs = []
+    var img_list = []
+    if (liste[0] == button) {
+
+    }
+    if (liste[0] == button2) {
+
+    }
+    if (liste[0] == button3) {
+
+    }
+    if (liste[0] == button4) {
+        
+    }
+
+    selector1 = document.getElementById("luftFiltrasjon")
+    if (selector1.value == "yes")
+    {
+        liste_over_results.push("Installing air filtration in a factory transforms the industrial environment into a healthier, more efficient, and compliant workplace by removing hazardous dust, smoke, oil mists, and fumes. A proper system protects both human health and machinery, leading to fewer breakdowns, higher productivity, and lower operating costs.")
+        utslipp += 10*size
+        fabrikkpris += 2500*size
+    }
+    else if (selector1.value == "no")
+    {
+        liste_over_results.push("Not having air filtration in a factory leads to severe, long-term consequences that affect employee health, equipment longevity, product quality, and regulatory compliance. Without filtration, industrial environments—which are often 5 to 10 times more polluted than outdoor air—become hazardous environments, leading to accumulated dust, oil mist, and toxic contaminants in the air.")
+        utslipp += 1*size
+        fabrikkpris += 250*size
+    }
+    selector2 = document.getElementById("avfall")
+    if (selector2.value == "yes")
+    {
+        liste_over_results.push("you answered yes, but we havent filled in this text yet")
+        utslipp += 10*size
+        fabrikkpris += 2500*size
+    }
+    else if (selector2.value == "no")
+    {
+        liste_over_results.push("you answered no, but we havent filled in this text yet")
+        utslipp += 1*size
+        fabrikkpris += 250*size
+    }
+    selector3 = document.getElementById("kilde")
+    if (selector3.value == "yes")
+    {
+        liste_over_results.push("you answered yes, but we havent filled in this text yet")
+        utslipp += 10*size
+        fabrikkpris += 2500*size
+    }
+    else if (selector3.value == "no")
+    {
+        liste_over_results.push("you answered no, but we havent filled in this text yet")
+        utslipp += 1*size
+        fabrikkpris += 250*size
+    }
+
+    if (size < 25000){
+        liste_over_results.push(`Having a small-sized factory—often defined as a micro-factory or small-scale manufacturing unit—presents a mix of strategic advantages and operational constraints. Small factories often benefit from high flexibility and lower overhead, but they face limitations in production capacity, efficiency, and resource access.`)
+    }
+    else if (size > 25000){
+        if (size > 100000){
+            liste_over_results.push(`Its a large factory, but we havent filled in this text yet`)
+        }
+        else {
+            liste_over_results.push(`A medium-sized factory (typically defined as having 50–250 employees and 10,000–50,000 square feet) operates as a balance between the agility of a small workshop and the capability of a large plant, acting as a "middle ground" for growth.`)
+        }
+        
+    }
+
+    liste_over_results.push(`and cost you ${fabrikkpris}kr`)
+    if (utslipp < gjennomsnittsutslipp) {
+        utslippmin = gjennomsnittsutslipp - utslipp
+        liste_over_results.push(` and your factory put out ${utslipp} ton CO2 per year, thats ${utslippmin} ton less than the average electric car factory, most factories put out ${gjennomsnittsutslipp} ton CO2 per year...`)
+    }
+    else {
+        utslippmin = utslipp - gjennomsnittsutslipp
+        liste_over_results.push(` and your factory put out ${utslipp} ton CO2 per year, thats ${utslippmin} ton more than the average electric car factory, most factories put out ${gjennomsnittsutslipp} ton CO2 per year...`)
+    }
+    return liste_over_results
+}*/
 
 function use_results()
 {
-
-    const results = JSON.parse(localStorage.getItem("factoryResults")); 
+    const results = JSON.parse(localStorage.getItem("factoryResults"))
     if (results)
     {
         const text1=document.getElementById("textcontent1")
@@ -211,4 +294,12 @@ function use_results()
         text6.textContent =results[5] 
         const text7=document.getElementById("textcontent7")
         text7.textContent =results[6] 
-    }}
+        
+    }
+    const images = JSON.parse(localStorage.getItem("images"))
+    if (images)
+    {
+        const img1=document.getElementById("img1")
+        img1.src=images[0]
+    }
+}
