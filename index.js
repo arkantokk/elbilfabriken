@@ -30,7 +30,7 @@ button3.addEventListener("click", () => {
     button3.classList.add("active");
 });
 button4.addEventListener("click", () => {
-    choice1 = button3;
+    choice1 = button4;
     button.classList.remove("active");
     button2.classList.remove("active");
     button3.classList.remove("active");
@@ -65,121 +65,118 @@ function get_results(liste) {
     var size = parseInt(label.value)
     if (liste[0] == button) {
         liste_over_results.push(`Building a factory next to a city acts as a catalyst for both economic development and environmental/social disruption. It creates jobs, lowers commuting times, and increases tax revenue, but it often brings pollution, traffic congestion, and lower quality of life to nearby residential areas.
-Downsides:
-•	Pollution
-•	Traffic congestion
-•	Lower quality of life to nearby residential areas
-Benefits:
-•	Economic development
-•	Environmental/social disruption
-•	It creates jobs
-•	Lowers commuting times
-•	Increases tax revenue
+\nDownsides:
+\n•	Pollution
+\n•	Traffic congestion
+\n•	CO2 output from a factory located next to a city directly impacts the local environment and population, contributing to both immediate air quality issues and long-term global climate change. While co2 itself is a colorless, odorless gas, it is usually emitted alongside other pollutants—such as nitrogen oxides (Nox) sulfur dioxide (so2), and particulate matter (PM2.5)—that cause smog, respiratory issues, and cardiovascular problems in surrounding residential areas.
+\nBenefits:
+\n•	Economic development
+\n•	Environmental/social disruption
+\n•	It creates jobs
+\n•	Lowers commuting times
+\n•	Increases tax revenue
  `)
         img_list.push("/assets/by.jpg")
-        utslipp += 100
-        fabrikkpris += 100000
+        //utslipp += 100
+        //fabrikkpris += 100000
     }
     if (liste[0] == button2) {
         liste_over_results.push(`Building a factory in or on a mountain presents unique engineering challenges, high logistical costs, and significant environmental considerations, but it can offer benefits such as natural security, stable temperatures, and high-profit margins due to specialized production.
-Downsides:
-•	High logistics costs
-•	Significant environmental considerations
-Benefits:
-•	Natural security
-•	Stable temperature
-•	Specialized production
+
+\nDownsides:
+\n•	High logistics costs
+\n•	Significant environmental considerations
+\nBenefits:
+\n•	Natural security
+\n•	Stable temperature
+\n•	Specialized production
 `)
         img_list.push("/assets/by.jpg") //change
-        utslipp += 200
-        fabrikkpris += 200000
+        //utslipp += 200
+        //fabrikkpris += 200000
     }
     if (liste[0] == button3) {
         liste_over_results.push(`
 Building a factory in a forest initiates significant, long-term changes to the local ecosystem, ranging from habitat destruction to altered air and water quality. While conventional construction typically damages these environments, modern "factory-as-a-forest" approaches aim to blend industrial activity with ecological restoration. 
-Downsides:
-•	Long-term changes to the local ecosystem:
-o	Habitat destruction
-o	Altered air and water quality
-•	Modern "factory-as-a-forest" approaches aim to blend industrial activity with ecological restoration
-Benefits: 
-•	The trees in the surrounding forest absorb a portion of the factory's CO2 emissions. Through photosynthesis
+\nDownsides:
+\n•	Long-term changes to the local ecosystem, including: Habitat destruction and Altered air and water quality
+\n•	Modern "factory-as-a-forest" approaches aim to blend industrial activity with ecological restoration
+\nBenefits: 
+\n•	The trees in the surrounding forest absorb a portion of the factory's CO2 emissions. Through photosynthesis
 `)
         img_list.push("/assets/by.jpg")
-        utslipp += 10
-        fabrikkpris += 50000
+        //utslipp += 10
+        //fabrikkpris += 50000
     }
     if (liste[0] == button4) {
         liste_over_results.push(`Building a factory in a river valley generally serves logistical and operational needs—such as water access and transport—but frequently leads to significant environmental degradation, increased pollution, and higher risks of flooding for surrounding areas. While it can bring economic growth and jobs, these benefits are often overshadowed by long-term damage to ecosystems and public health.
-Downsides:
-•	Logistical and operational needs
-o	Water access
-o	Transport
-•	Significant environmental degradation
-•	Increased pollution
-•	Higher risks of flooding the surrounding areas
-•	Long-term damage to ecosystems and public health
-•	CO2 emissions from a factory in a river valley tend to become trapped near the ground due to the surrounding topography, which restricts horizontal wind dispersion. This creates localized high-concentration areas, especially during temperature inversions where cool, dense air (carrying the CO2) is capped by warmer air above. 
-Benefits:
-•	Economic growth and jobs
+\nDownsides:
+\n•	Logistical and operational needs, including: Water access and Transport
+\n•	Significant environmental degradation
+\n•	Increased pollution
+\n•	Higher risks of flooding the surrounding areas
+\n•	Long-term damage to ecosystems and public health
+\n•	CO2 emissions from a factory in a river valley tend to become trapped near the ground due to the surrounding topography, which restricts horizontal wind dispersion. This creates localized high-concentration areas, especially during temperature inversions where cool, dense air (carrying the CO2) is capped by warmer air above. 
+\nBenefits:
+\n•	Economic growth and jobs
 `)
         img_list.push("/assets/by.jpg")
-        utslipp += 10
-        fabrikkpris += 50000
+        //utslipp += 10
+        //fabrikkpris += 50000
     }
 
     selector1 = document.getElementById("luftFiltrasjon")
     if (selector1.value == "yes")
     {
         liste_over_results.push("Installing air filtration in a factory transforms the industrial environment into a healthier, more efficient, and compliant workplace by removing hazardous dust, smoke, oil mists, and fumes. A proper system protects both human health and machinery, leading to fewer breakdowns, higher productivity, and lower operating costs.")
-        utslipp += 10*size
-        fabrikkpris += 2500*size
+        //utslipp += 10*size
+        //fabrikkpris += 2500*size
         img_list.push("/assets/by.jpg")
     }
     else if (selector1.value == "no")
     {
         liste_over_results.push("Not having air filtration in a factory leads to severe, long-term consequences that affect employee health, equipment longevity, product quality, and regulatory compliance. Without filtration, industrial environments—which are often 5 to 10 times more polluted than outdoor air—become hazardous environments, leading to accumulated dust, oil mist, and toxic contaminants in the air.")
-        utslipp += 1*size
-        fabrikkpris += 250*size
+        //utslipp += 1*size
+        //fabrikkpris += 250*size
         img_list.push("/assets/by.jpg")
     }
     selector2 = document.getElementById("avfall")
     if (selector2.value == "yes")
     {
         liste_over_results.push("you answered yes, but we havent filled in this text yet")
-        utslipp += 10*size
-        fabrikkpris += 2500*size
+        //utslipp += 10*size
+        //fabrikkpris += 2500*size
         img_list.push("/assets/by.jpg")
     }
     else if (selector2.value == "no")
     {
         liste_over_results.push("you answered no, but we havent filled in this text yet")
-        utslipp += 1*size
-        fabrikkpris += 250*size
+        //utslipp += 1*size
+        //fabrikkpris += 250*size
         img_list.push("/assets/by.jpg")
     }
     selector3 = document.getElementById("kilde")
     if (selector3.value == "yes")
     {
         liste_over_results.push("you answered yes, but we havent filled in this text yet")
-        utslipp += 10*size
-        fabrikkpris += 2500*size
+        //utslipp += 10*size
+        //fabrikkpris += 2500*size
         img_list.push("/assets/by.jpg")
     }
     else if (selector3.value == "no")
     {
         liste_over_results.push("you answered no, but we havent filled in this text yet")
-        utslipp += 1*size
-        fabrikkpris += 250*size
+        //utslipp += 1*size
+        //fabrikkpris += 250*size
         img_list.push("/assets/by.jpg")
     }
 
-    if (size < 25000){
+    if (size < 2300){
         liste_over_results.push(`Having a small-sized factory—often defined as a micro-factory or small-scale manufacturing unit—presents a mix of strategic advantages and operational constraints. Small factories often benefit from high flexibility and lower overhead, but they face limitations in production capacity, efficiency, and resource access.`)
         img_list.push("/assets/by.jpg")
     }
-    else if (size > 25000){
-        if (size > 100000){
+    else if (size > 2300){
+        if (size > 9200){
             liste_over_results.push(`Its a large factory, but we havent filled in this text yet`)
             img_list.push("/assets/by.jpg")
         }
@@ -189,6 +186,8 @@ Benefits:
         }
         
     }
+    utslipp += size //adding contruction emissions
+    utslipp += size*0.2 //yearly emissions per square meter ish
 
     liste_over_results.push(`and cost you ${fabrikkpris}kr`)
     if (utslipp < gjennomsnittsutslipp) {
