@@ -4,7 +4,14 @@ const button3 = document.getElementById("forest")
 const button4 = document.getElementById("river")
 const submitButton = document.getElementById("submit_btn") // button that will calculate
 var choice1;
-
+const mapElement = document.getElementById('map');
+let mapInstance = null;
+let marker = null;
+let impactLayers = {
+    high: null,
+    moderate: null,
+    low: null
+};
 
 const gjennomsnittsutslipp = 2420000;
 
@@ -211,6 +218,68 @@ Building a factory in a forest initiates significant, long-term changes to the l
     return list1og2
 }
 
+function getSelectedAreaType() {
+    if (choice1 === button) return 'city'
+    if (choice1 === button2) return 'mountain'
+    if (choice1 === button3) return 'forest'
+    if (choice1 === button4) return 'river'
+    return 'city'
+}
+
+function updateImpactZones(latlng) {
+    if (!mapInstance) return;
+
+    if (impactLayers.high) mapInstance.removeLayer(impactLayers.high);
+    if (impactLayers.moderate) mapInstance.removeLayer(impactLayers.moderate);
+    if (impactLayers.low) mapInstance.removeLayer(impactLayers.low);
+
+    impactLayers.high = L.circle(latlng, {
+        radius: 900,
+        color: '#ef4444',
+        fillColor: '#ef4444',
+        fillOpacity: 0.25
+    }).addTo(mapInstance);
+
+    impactLayers.moderate = L.circle(latlng, {
+        radius: 1800,
+        color: '#f59e0b',
+        fillColor: '#f59e0b',
+        fillOpacity: 0.18
+    }).addTo(mapInstance);
+
+    impactLayers.low = L.circle(latlng, {
+        radius: 3000,
+        color: '#fbbf24',
+        fillColor: '#fbbf24',
+        fillOpacity: 0.12
+    }).addTo(mapInstance);
+}
+
+function placeFactory(latlng) {
+    if (!mapInstance) return;
+    if (marker) {
+        marker.setLatLng(latlng);
+    } else {
+        marker = L.marker(latlng, { draggable: true }).addTo(mapInstance);
+        marker.on('dragend', function (e) {
+            updateImpactZones(e.target.getLatLng());
+        });
+    }
+    updateImpactZones(latlng);
+}
+
+function initMap() {
+    if (!mapElement) return;
+
+    mapInstance = L.map('map').setView([59.9139, 10.7522], 11);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(mapInstance);
+
+    mapInstance.on('click', function (e) {
+        placeFactory(e.latlng);
+    });
+}
 
 function use_results()
 {
@@ -247,3 +316,5 @@ function use_results()
         
     }
 }
+
+initMap();

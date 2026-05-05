@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>elbilfabrikken</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -33,6 +34,12 @@
             </button>
         </div>
         
+        <div class="map-section">
+            <h2>Map preview</h2>
+            <div id="map"></div>
+            <p class="map-hint">Click the map to place your factory and see the impact zones.</p>
+        </div>
+
         <form class="user-inputs" >
             <div class="form-group">
                 <label for="size">Write size of the factory</label>
@@ -75,6 +82,7 @@
         </div>
     </main>
 </body>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script src="index.js"></script>
 
 </html>
