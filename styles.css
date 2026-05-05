@@ -18,8 +18,8 @@
 }
 
 body {
-    background-color: var(--moss-900);
-    color: var(--slate-50);
+    background-color: var(--slate-50);
+    color: white;
     font-family: "lora";
     margin:2rem;
 }
@@ -37,7 +37,7 @@ body {
 
 h1 {
     margin: 0;
-    color: var(--moss-100);
+    color: white;
     letter-spacing: 0.04em;
     text-transform: uppercase;
 }
@@ -49,14 +49,14 @@ h1 {
     width: min(580px, 90vw);
     padding: 20px;
     border-radius: 28px;
-    background: rgba(0, 0, 0, 0.2);
-    border: 1px solid var(--moss-500);
+    background: var(--moss-700);
+    border: 1px solid rgba(97, 139, 74, 0.4);
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
 }
 
 .area-button {
     min-height: 130px;
-    border: 1px solid var(--moss-500);
+    border: 1px solid rgba(97, 139, 74, 0.4);
     border-radius: 20px;
     color: var(--slate-50);
     font-size: 1.1rem;
@@ -68,15 +68,15 @@ h1 {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: var(--moss-700);
+    background: var(--forest-500);
 }
 
 .area-button:hover {
-    background: var(--moss-500);
+    background: #4b6c39;
 }
 
 .area-button.active {
-    background: var(--forest-500);
+    background: var(--moss-900);
     border-color: var(--teal-100);
     box-shadow: 0 0 20px rgba(97, 139, 74, 0.4);
 }
@@ -92,9 +92,9 @@ h1 {
     width: min(540px, 90vw);
     padding: 32px;
     border-radius: 24px;
-    background: var(--moss-200);
+    background: var(--moss-700);
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
-    border: 1px solid var(--moss-500);
+    border: 1px solid rgba(97, 139, 74, 0.4);
 }
 
 .form-group {
@@ -106,7 +106,7 @@ h1 {
 .form-group label {
     font-size: 0.95rem;
     font-weight: 600;
-    color: var(--moss-100);
+    color: white;
     letter-spacing: 0.01em;
 }
 
@@ -123,7 +123,7 @@ h1 {
 }
 
 .form-group input::placeholder {
-    color: var(--moss-300);
+    color: var(--slate-50);
     opacity: 0.6;
 }
 
@@ -185,4 +185,18 @@ h1 {
 .form-group select option {
     background-color: #373D20;
     color: var(--slate-50);
+}
+
+#title{
+    color:black;
+    font-size:20px;
+    font-family: "lora";
+}
+
+h1{
+    color:black;
+    font-size:2.5rem;
+    font-family: "lora";
+    text-align:center;
+    margin:1rem;
 }

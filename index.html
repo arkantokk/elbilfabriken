@@ -14,8 +14,10 @@
 </head>
 
 <body>
+    <h1>Make your factory</h1>
     
     <main class="container">
+        <div id="title">Where do you want to put your factory?</div>
         <div class="area-choice">
             <button id="by" class="area-button">
                 City
@@ -30,8 +32,8 @@
                 River Valley
             </button>
         </div>
-
-        <form class="user-inputs">
+        
+        <form class="user-inputs" >
             <div class="form-group">
                 <label for="size">Write size of the factory</label>
                 <input id="size" type="text" placeholder="Write in m2...">
@@ -47,11 +49,12 @@
             </div>
 
             <div class="form-group">
-                <label for="avfall">How should the waste be handled?</label>
+                <label for="avfall">Should the factory use proper waste disposal?</label>
                 <select name="avfall" id="avfall">
                     <option value="">-- Choose --</option>
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
+                    <option value="Norway">Norway</option>
+                    <option value="Germany">Germany</option>
+                    <option value="Brazil">Brazil</option> //NEED TO FIX THIS NEXT
                 </select>
             </div>
 

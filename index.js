@@ -91,7 +91,7 @@ function get_results(liste) {
 \n•	Stable temperature
 \n•	Specialized production
 `)
-        img_list.push("/assets/by.jpg") //change
+        img_list.push("/assets/mountain.jpg") //change
         //utslipp += 200
         //fabrikkpris += 200000
     }
@@ -104,7 +104,7 @@ Building a factory in a forest initiates significant, long-term changes to the l
 \nBenefits: 
 \n•	The trees in the surrounding forest absorb a portion of the factory's CO2 emissions. Through photosynthesis
 `)
-        img_list.push("/assets/by.jpg")
+        img_list.push("/assets/forest.jpg")
         //utslipp += 10
         //fabrikkpris += 50000
     }
@@ -120,7 +120,7 @@ Building a factory in a forest initiates significant, long-term changes to the l
 \nBenefits:
 \n•	Economic growth and jobs
 `)
-        img_list.push("/assets/by.jpg")
+        img_list.push("/assets/river.jpg")
         //utslipp += 10
         //fabrikkpris += 50000
     }
@@ -131,19 +131,20 @@ Building a factory in a forest initiates significant, long-term changes to the l
         liste_over_results.push("Installing air filtration in a factory transforms the industrial environment into a healthier, more efficient, and compliant workplace by removing hazardous dust, smoke, oil mists, and fumes. A proper system protects both human health and machinery, leading to fewer breakdowns, higher productivity, and lower operating costs.")
         //utslipp += 10*size
         //fabrikkpris += 2500*size
-        img_list.push("/assets/by.jpg")
+        img_list.push("/assets/airfilter.jpg")
     }
     else if (selector1.value == "no")
     {
         liste_over_results.push("Not having air filtration in a factory leads to severe, long-term consequences that affect employee health, equipment longevity, product quality, and regulatory compliance. Without filtration, industrial environments—which are often 5 to 10 times more polluted than outdoor air—become hazardous environments, leading to accumulated dust, oil mist, and toxic contaminants in the air.")
         //utslipp += 1*size
         //fabrikkpris += 250*size
-        img_list.push("/assets/by.jpg")
+        img_list.push("/assets/noairfilter.webp")
     }
     selector2 = document.getElementById("avfall")
     if (selector2.value == "yes")
     {
-        liste_over_results.push("you answered yes, but we havent filled in this text yet")
+        liste_over_results.push("Electric car factories manage waste through a combination of advanced recycling, circular economy practices, and strict water management, aiming to minimize the environmental impact of manufacturing high-voltage batteries and vehicles." +
+" Key strategies include managing hazardous waste from battery production, recycling manufacturing scraps, and increasingly adopting closed-loop systems to reuse materials")
         //utslipp += 10*size
         //fabrikkpris += 2500*size
         img_list.push("/assets/by.jpg")
@@ -176,7 +177,7 @@ Building a factory in a forest initiates significant, long-term changes to the l
         img_list.push("/assets/by.jpg")
     }
     else if (size > 2300){
-        if (size > 9200){
+        if (size > 10000){
             liste_over_results.push(`Its a large factory, but we havent filled in this text yet`)
             img_list.push("/assets/by.jpg")
         }
@@ -187,7 +188,7 @@ Building a factory in a forest initiates significant, long-term changes to the l
         
     }
     utslipp += size //adding contruction emissions
-    utslipp += size*0.2 //yearly emissions per square meter ish
+    utslipp += size*0.55 //yearly emissions per square meter ish
 
     liste_over_results.push(`and cost you ${fabrikkpris}kr`)
     if (utslipp < gjennomsnittsutslipp) {
@@ -235,8 +236,6 @@ function use_results()
         img3.src=images[2]
         const img4=document.getElementById("img4")
         img4.src=images[3]
-        const img5=document.getElementById("img5")
-        img5.src=images[4]
         
     }
 }
