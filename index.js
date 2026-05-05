@@ -157,21 +157,29 @@ Building a factory in a forest initiates significant, long-term changes to the l
         img_list.push("/assets/by.jpg")
     }
     selector3 = document.getElementById("kilde")
-    if (selector3.value == "yes")
+    if (selector3.value == "Norway")
     {
-        liste_over_results.push("you answered yes, but we havent filled in this text yet")
+        liste_over_results.push("you answered Norway, but we havent filled in this text yet")
         //utslipp += 10*size
         //fabrikkpris += 2500*size
         img_list.push("/assets/by.jpg")
     }
-    else if (selector3.value == "no")
+    else if (selector3.value == "Germany")
     {
-        liste_over_results.push("you answered no, but we havent filled in this text yet")
+        liste_over_results.push("you answered Germany, but we havent filled in this text yet")
+        //utslipp += 1*size
+        //fabrikkpris += 250*size
+        img_list.push("/assets/by.jpg")
+    }
+    else if (selector3.value == "Brazil")
+    {
+        liste_over_results.push("you answered Brazil, but we havent filled in this text yet")
         //utslipp += 1*size
         //fabrikkpris += 250*size
         img_list.push("/assets/by.jpg")
     }
 
+    
     if (size < 2300){
         liste_over_results.push(`Having a small-sized factory—often defined as a micro-factory or small-scale manufacturing unit—presents a mix of strategic advantages and operational constraints. Small factories often benefit from high flexibility and lower overhead, but they face limitations in production capacity, efficiency, and resource access.`)
         img_list.push("/assets/by.jpg")
@@ -190,14 +198,14 @@ Building a factory in a forest initiates significant, long-term changes to the l
     utslipp += size //adding contruction emissions
     utslipp += size*0.55 //yearly emissions per square meter ish
 
-    liste_over_results.push(`and cost you ${fabrikkpris}kr`)
+    //liste_over_results.push(`it cost you ${fabrikkpris}kr`) Commented so that we can possibly add it back later, but before now shouldnt be prioritsed
     if (utslipp < gjennomsnittsutslipp) {
         utslippmin = gjennomsnittsutslipp - utslipp
-        liste_over_results.push(` and your factory put out ${utslipp} ton CO2 per year, thats ${utslippmin} ton less than the average electric car factory, most factories put out ${gjennomsnittsutslipp} ton CO2 per year...`)
+        liste_over_results.push(`Your factory put out ${utslipp} ton CO2 per year, thats ${utslippmin} ton less than the average electric car factory, most factories put out ${gjennomsnittsutslipp} ton CO2 per year...`)
     }
     else {
         utslippmin = utslipp - gjennomsnittsutslipp
-        liste_over_results.push(` and your factory put out ${utslipp} ton CO2 per year, thats ${utslippmin} ton more than the average electric car factory, most factories put out ${gjennomsnittsutslipp} ton CO2 per year...`)
+        liste_over_results.push(`Your factory put out ${utslipp} ton CO2 per year, thats ${utslippmin} ton more than the average electric car factory, most factories put out ${gjennomsnittsutslipp} ton CO2 per year...`)
     }
     var list1og2 = [liste_over_results, img_list]
     return list1og2
