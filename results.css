@@ -86,12 +86,45 @@ h1 {
     color:#EFF1ED;
 }
 
-#textcontent6{
-    padding:1.5rem;
+#utslipp{
+    padding:2rem;
     margin-right:4rem;
     background:#40531B;
     border-radius:1rem;
     color:#EFF1ED;
+    display:flex;
+    flex-direction:column;
+    gap:1.5rem;
+}
+
+#emissionstable{
+    width:50rem;
+    height:30rem;
+    background:#EFF1ED;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:end;
+    border-radius:1rem;
+}
+
+#emissioncolumns{
+    display:flex;
+    flex-direction:row;
+    gap:12rem;
+    align-items: flex-end;
+}
+
+#yourfactory{
+    background: #618B4A;
+    width:8rem;
+    text-align:center;
+}
+
+#averagefactory{
+    background:#4b7635;
+    width: 8rem;
+    text-align:center;
 }
 
 #textcontent7{
