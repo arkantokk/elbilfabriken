@@ -6,7 +6,7 @@ const submitButton = document.getElementById("submit_btn") // button that will c
 var choice1;
 
 
-const gjennomsnittsutslipp = 2420000;
+var gjennomsnittsutslipp = 2420000;
 
 button.addEventListener("click", () => {
     choice1 = button;
@@ -52,6 +52,7 @@ submitButton.addEventListener("click", (e) => {
 
     localStorage.setItem("factoryResults", JSON.stringify(results[0]))
     localStorage.setItem("images", JSON.stringify(results[1]))
+    localStorage.setItem("emissions", JSON.stringify(results[2]))
     window.location.href = "results.html"
 });
 
@@ -151,7 +152,7 @@ Building a factory in a forest initiates significant, long-term changes to the l
     }
     else if (selector2.value == "no")
     {
-        liste_over_results.push("you answered no, but we havent filled in this text yet")
+        liste_over_results.push("Failing to implement proper waste management in an electric vehicle (EV) factory causes significant environmental, safety, and regulatory risks, primarily stemming from the toxic components involved in battery manufacturing and electronics. Without appropriate disposal, heavy metals and hazardous chemicals can leach into water sources and soil, creating long-term contamination. ")
         //utslipp += 1*size
         //fabrikkpris += 250*size
         img_list.push("/assets/by.jpg")
@@ -179,35 +180,75 @@ Building a factory in a forest initiates significant, long-term changes to the l
         img_list.push("/assets/by.jpg")
     }
 
-    
-    if (size < 2300){
+
+    if (size < 2500){
         liste_over_results.push(`Having a small-sized factory—often defined as a micro-factory or small-scale manufacturing unit—presents a mix of strategic advantages and operational constraints. Small factories often benefit from high flexibility and lower overhead, but they face limitations in production capacity, efficiency, and resource access.`)
         img_list.push("/assets/by.jpg")
+        gjennomsnittsutslipp = 14000
+            if (selector3.value == "Norway")
+            {
+                utslipp += 120
+            }
+            else if (selector3.value == "Germany")
+            {
+                utslipp += 168
+            }
+            else if (selector3.value == "Brazil")
+            {
+                utslipp += 780
+            }
     }
-    else if (size > 2300){
+    else if (size > 2500){
         if (size > 10000){
             liste_over_results.push(`Its a large factory, but we havent filled in this text yet`)
             img_list.push("/assets/by.jpg")
+            gjennomsnittsutslipp = 100000
+            if (selector3.value == "Norway")
+            {
+                utslipp += 1200
+            }
+            else if (selector3.value == "Germany")
+            {
+                utslipp += 1680
+            }
+            else if (selector3.value == "Brazil")
+            {
+                utslipp += 7800
+            }
         }
         else {
             liste_over_results.push(`A medium-sized factory (typically defined as having 50–250 employees and 10,000–50,000 square feet) operates as a balance between the agility of a small workshop and the capability of a large plant, acting as a "middle ground" for growth.`)
             img_list.push("/assets/by.jpg")
+            gjennomsnittsutslipp = 50000
+            if (selector3.value == "Norway")
+            {
+                utslipp += 480
+            }
+            else if (selector3.value == "Germany")
+            {
+                utslipp += 672
+            }
+            else if (selector3.value == "Brazil")
+            {
+                utslipp += 3120
+            }
         }
         
     }
-    utslipp += size //adding contruction emissions
-    utslipp += size*0.55 //yearly emissions per square meter ish
-
+    utslipp += size*6 //yearly emissions per square meter, by taking avergae car produced per m^2 multiplied by 10 for the emission per prodcution
+    utslipp += size*0.2 //yearly emissions per swaure meter for stuff like heating, osv...
+    
     //liste_over_results.push(`it cost you ${fabrikkpris}kr`) Commented so that we can possibly add it back later, but before now shouldnt be prioritsed
     if (utslipp < gjennomsnittsutslipp) {
         utslippmin = gjennomsnittsutslipp - utslipp
-        liste_over_results.push(`Your factory put out ${utslipp} ton CO2 per year, thats ${utslippmin} ton less than the average electric car factory, most factories put out ${gjennomsnittsutslipp} ton CO2 per year...`)
+        liste_over_results.push(`Your factory put out ${utslipp} ton CO2 per year, thats ${utslippmin} ton less than the average electric car factory of a similar size, most factories around that size put out ${gjennomsnittsutslipp} ton CO2 per year on average.`)
     }
     else {
         utslippmin = utslipp - gjennomsnittsutslipp
-        liste_over_results.push(`Your factory put out ${utslipp} ton CO2 per year, thats ${utslippmin} ton more than the average electric car factory, most factories put out ${gjennomsnittsutslipp} ton CO2 per year...`)
+        liste_over_results.push(`Your factory put out ${utslipp} ton CO2 per year, thats ${utslippmin} ton more than the average electric car factory of a similar size, most factories around that size put out ${gjennomsnittsutslipp} ton CO2 per year on average.`)
     }
-    var list1og2 = [liste_over_results, img_list]
+    var liste3 =[utslipp, gjennomsnittsutslipp]
+    var list1og2 = [liste_over_results, img_list, liste3]
     return list1og2
 }
 
@@ -229,8 +270,8 @@ function use_results()
         text5.textContent =results[4] 
         const text6=document.getElementById("textcontent6")
         text6.textContent =results[5] 
-        const text7=document.getElementById("textcontent7")
-        text7.textContent =results[6] 
+        //const text7=document.getElementById("textcontent7")
+        //text7.textContent =results[6] 
         
     }
     const images = JSON.parse(localStorage.getItem("images"))
@@ -246,4 +287,25 @@ function use_results()
         img4.src=images[3]
         
     }
-}
+    const emissions = JSON.parse(localStorage.getItem("emissions"))
+    if (emissions)
+    {
+        if (emissions[0] < emissions[1])
+        {
+        const bar1=document.getElementById("yourfactory")
+        var heightofbar = (emissions[0] / emissions[1]) * 30
+        bar1.style.height = `${heightofbar}rem`
+        const bar2=document.getElementById("averagefactory")
+        bar2.style.height="30rem"
+        }
+        else
+        {
+        const bar1=document.getElementById("yourfactory")
+        const bar2=document.getElementById("averagefactory")
+        var heightofbar = (emissions[1] / emissions[0]) * 30
+        bar2.style.height = `${heightofbar}rem`
+        bar1.style.height="30rem"
+        }
+        }
+    
+}  
