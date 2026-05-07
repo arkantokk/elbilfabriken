@@ -41,7 +41,13 @@ button4.addEventListener("click", () => {
 const resultbtn = document.getElementById("resultsbutton")
 
 submitButton.addEventListener("click", (e) => {
-    e.preventDefault();
+    const size = document.getElementById("size");
+    const luftfiltrasjon = document.getElementById("luftFiltrasjon");
+    const avfall = document.getElementById("avfall");
+    const kilde = document.getElementById("kilde");
+
+    if (choice1 && size.value != '' && luftfiltrasjon.value != '' && avfall.value != '' && kilde.value != '')
+    {    e.preventDefault();
     var liste_over_valg = []
     liste_over_valg.push(choice1)
     var results = get_results(liste_over_valg)
@@ -54,6 +60,12 @@ submitButton.addEventListener("click", (e) => {
     localStorage.setItem("images", JSON.stringify(results[1]))
     localStorage.setItem("emissions", JSON.stringify(results[2]))
     window.location.href = "results.html"
+}
+    else
+    {
+        alert("Please fill inn the required fields")
+    }
+
 });
 
 function get_results(liste) {
@@ -160,21 +172,21 @@ Building a factory in a forest initiates significant, long-term changes to the l
     selector3 = document.getElementById("kilde")
     if (selector3.value == "Norway")
     {
-        liste_over_results.push("you answered Norway, but we havent filled in this text yet")
+        liste_over_results.push("Electric car factories (OEMs) get their supplies from a complex, global, multi-tiered supply chain that begins with mining and ends with battery assembly, heavily dominated by manufacturers in China, Japan, and South Korea. The supply chain is structured into three main stages: upstream (raw materials), midstream (refining and components), and downstream (assembly)." + "you answered Norway, but we havent filled in this text yet")
         //utslipp += 10*size
         //fabrikkpris += 2500*size
         img_list.push("/assets/Norway.png")
     }
     else if (selector3.value == "Germany")
     {
-        liste_over_results.push("you answered Germany, but we havent filled in this text yet")
+        liste_over_results.push("Electric car factories (OEMs) get their supplies from a complex, global, multi-tiered supply chain that begins with mining and ends with battery assembly, heavily dominated by manufacturers in China, Japan, and South Korea. The supply chain is structured into three main stages: upstream (raw materials), midstream (refining and components), and downstream (assembly)." + "you answered Germany, but we havent filled in this text yet")
         //utslipp += 1*size
         //fabrikkpris += 250*size
         img_list.push("/assets/Germany.jpg")
     }
     else if (selector3.value == "Brazil")
     {
-        liste_over_results.push("you answered Brazil, but we havent filled in this text yet")
+        liste_over_results.push("Electric car factories (OEMs) get their supplies from a complex, global, multi-tiered supply chain that begins with mining and ends with battery assembly, heavily dominated by manufacturers in China, Japan, and South Korea. The supply chain is structured into three main stages: upstream (raw materials), midstream (refining and components), and downstream (assembly)." + "you answered Brazil, but we havent filled in this text yet")
         //utslipp += 1*size
         //fabrikkpris += 250*size
         img_list.push("/assets/Brazil.jpg")
@@ -200,7 +212,7 @@ Building a factory in a forest initiates significant, long-term changes to the l
     }
     else if (size > 2500){
         if (size > 10000){
-            liste_over_results.push(`Its a large factory, but we havent filled in this text yet`)
+            liste_over_results.push(`A large-scale factory significantly boosts production, increases efficiency through specialized labor, and lowers unit costs, but it requires higher operating costs, larger Minimum Order Quantities (MOQs), and creates a more rigid, complex, and slow-moving process`)
             img_list.push("/assets/by.jpg")
             gjennomsnittsutslipp = 100000
             if (selector3.value == "Norway")
