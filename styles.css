@@ -9,6 +9,7 @@
     --earth-500: #766153;
     --teal-100: #D7F9F1;
     --teal-600: #7AA095;
+    --bg-color:	#d9dba0;
 }
 
 * {
@@ -18,7 +19,7 @@
 }
 
 body {
-    background-color: var(--slate-50);
+    background-color: var(--bg-color);
     color: white;
     font-family: "lora";
     margin:2rem;
@@ -72,7 +73,7 @@ h1 {
 }
 
 .area-choice {
-    display: grid;
+    display: none;
     grid-template-columns: repeat(2, minmax(150px, 1fr));
     gap: 18px;
     width: min(580px, 90vw);
