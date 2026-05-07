@@ -80,7 +80,7 @@ Building a factory in a forest initiates significant, long-term changes to the l
 \nBenefits: 
 \n•	The trees in the surrounding forest absorb a portion of the factory's CO2 emissions. Through photosynthesis
 `, "/assets/forest.jpg"],
-        river: [`Building a factory in a river generally serves logistical and operational needs—such as water access and transport—but frequently leads to significant environmental degradation, increased pollution, and higher risks of flooding for surrounding areas. While it can bring economic growth and jobs, these benefits are often overshadowed by long-term damage to ecosystems and public health.
+        river: [`Building a factory near a river generally serves logistical and operational needs—such as water access and transport—but frequently leads to significant environmental degradation, increased pollution, and higher risks of flooding for surrounding areas. While it can bring economic growth and jobs, these benefits are often overshadowed by long-term damage to ecosystems and public health.
 \nDownsides:
 \n•	Logistical and operational needs, including: Water access and Transport
 \n•	Significant environmental degradation
