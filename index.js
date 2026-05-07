@@ -139,7 +139,7 @@ Building a factory in a forest initiates significant, long-term changes to the l
         liste_over_results.push("Not having air filtration in a factory leads to severe, long-term consequences that affect employee health, equipment longevity, product quality, and regulatory compliance. Without filtration, industrial environments—which are often 5 to 10 times more polluted than outdoor air—become hazardous environments, leading to accumulated dust, oil mist, and toxic contaminants in the air.")
         //utslipp += 1*size
         //fabrikkpris += 250*size
-        img_list.push("/assets/noairfilter.jpg")
+        img_list.push("/assets/noairfilter.webp")
     }
     selector2 = document.getElementById("avfall")
     if (selector2.value == "yes")
@@ -148,14 +148,14 @@ Building a factory in a forest initiates significant, long-term changes to the l
 " Key strategies include managing hazardous waste from battery production, recycling manufacturing scraps, and increasingly adopting closed-loop systems to reuse materials")
         //utslipp += 10*size
         //fabrikkpris += 2500*size
-        img_list.push("/assets/waste.jpg")
+        img_list.push("/assets/by.jpg")
     }
     else if (selector2.value == "no")
     {
         liste_over_results.push("Failing to implement proper waste management in an electric vehicle (EV) factory causes significant environmental, safety, and regulatory risks, primarily stemming from the toxic components involved in battery manufacturing and electronics. Without appropriate disposal, heavy metals and hazardous chemicals can leach into water sources and soil, creating long-term contamination. ")
         //utslipp += 1*size
         //fabrikkpris += 250*size
-        img_list.push("/assets/nowaster.jpg")
+        img_list.push("/assets/by.jpg")
     }
     selector3 = document.getElementById("kilde")
     if (selector3.value == "Norway")
@@ -163,21 +163,21 @@ Building a factory in a forest initiates significant, long-term changes to the l
         liste_over_results.push("you answered Norway, but we havent filled in this text yet")
         //utslipp += 10*size
         //fabrikkpris += 2500*size
-        img_list.push("/assets/Norway.png")
+        img_list.push("/assets/by.jpg")
     }
     else if (selector3.value == "Germany")
     {
         liste_over_results.push("you answered Germany, but we havent filled in this text yet")
         //utslipp += 1*size
         //fabrikkpris += 250*size
-        img_list.push("/assets/Germany.jpg")
+        img_list.push("/assets/by.jpg")
     }
     else if (selector3.value == "Brazil")
     {
         liste_over_results.push("you answered Brazil, but we havent filled in this text yet")
         //utslipp += 1*size
         //fabrikkpris += 250*size
-        img_list.push("/assets/Brazil.jpg")
+        img_list.push("/assets/by.jpg")
     }
 
 
@@ -307,4 +307,5 @@ function use_results()
         bar1.style.height="30rem"
         }
         }
+    
 }  
