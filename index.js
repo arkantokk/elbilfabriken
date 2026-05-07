@@ -26,13 +26,21 @@ const typeMap = { 'by': 'city', 'mountain': 'mountain', 'forest': 'forest', 'riv
 // --- Submit Logic ---
 submitButton.addEventListener("click", (e) => {
     e.preventDefault();
+    const size = document.getElementById("size");
+    const luftfiltrasjon = document.getElementById("luftFiltrasjon");
+    const avfall = document.getElementById("avfall");
+    const kilde = document.getElementById("kilde");
     if (!selectedAreaType) return alert('Please click the map to select a location first.');
     
+    
+    if (size.value != '' && luftfiltrasjon.value != '' && avfall.value != '' && kilde.value != '')
+    {
     const results = generate_factory_data(selectedAreaType);
     localStorage.setItem("factoryResults", JSON.stringify(results[0]));
     localStorage.setItem("images", JSON.stringify(results[1]));
     localStorage.setItem("emissions", JSON.stringify(results[2]))
-    window.location.href = "results.html";
+    window.location.href = "results.html"; }
+    else alert("Please fill in the required fields!")
 });
 
 function generate_factory_data(areaType) {
