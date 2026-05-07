@@ -237,7 +237,7 @@ Building a factory in a forest initiates significant, long-term changes to the l
     }
     utslipp += size*6 //yearly emissions per square meter, by taking avergae car produced per m^2 multiplied by 10 for the emission per prodcution
     utslipp += size*0.2 //yearly emissions per swaure meter for stuff like heating, osv...
-    
+    utslipp = Math.round(utslipp)
     //liste_over_results.push(`it cost you ${fabrikkpris}kr`) Commented so that we can possibly add it back later, but before now shouldnt be prioritsed
     if (utslipp < gjennomsnittsutslipp) {
         utslippmin = gjennomsnittsutslipp - utslipp
