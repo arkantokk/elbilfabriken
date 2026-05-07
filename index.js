@@ -41,7 +41,13 @@ button4.addEventListener("click", () => {
 const resultbtn = document.getElementById("resultsbutton")
 
 submitButton.addEventListener("click", (e) => {
-    e.preventDefault();
+    const size = document.getElementById("size");
+    const luftfiltrasjon = document.getElementById("luftFiltrasjon");
+    const avfall = document.getElementById("avfall");
+    const kilde = document.getElementById("kilde");
+
+    if (choice1 && size.value != '' && luftfiltrasjon.value != '' && avfall.value != '' && kilde.value != '')
+    {    e.preventDefault();
     var liste_over_valg = []
     liste_over_valg.push(choice1)
     var results = get_results(liste_over_valg)
@@ -54,6 +60,12 @@ submitButton.addEventListener("click", (e) => {
     localStorage.setItem("images", JSON.stringify(results[1]))
     localStorage.setItem("emissions", JSON.stringify(results[2]))
     window.location.href = "results.html"
+}
+    else
+    {
+        alert("Please fill inn the required fields")
+    }
+
 });
 
 function get_results(liste) {
