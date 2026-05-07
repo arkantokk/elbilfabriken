@@ -107,7 +107,7 @@ Building a factory in a forest initiates significant, long-term changes to the l
     if (selector2.value == "yes")
     {
         text_list.push("Electric car factories manage waste through a combination of advanced recycling, circular economy practices, and strict water management, aiming to minimize the environmental impact of manufacturing high-voltage batteries and vehicles." +
-" Key strategies include managing hazardous waste from battery production, recycling manufacturing scraps, and increasingly adopting closed-loop systems to reuse materials")
+" Key strategies include managing hazardous waste from battery productions, recycling manufacturing scraps, and increasingly adopting closed-loop systems to reuse materials")
         img_list.push("/assets/waste.jpg")
     }
     else if (selector2.value == "no")
