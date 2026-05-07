@@ -11,7 +11,7 @@ let mapInstance = null;
 let marker = null;
 let impactLayers = { high: null, moderate: null, low: null };
 
-const gjennomsnittsutslipp = 2420000;
+var gjennomsnittsutslipp = 2420000;
 
 // --- User Interaction: Manual Buttons ---
 const typeMap = { 'by': 'city', 'mountain': 'mountain', 'forest': 'forest', 'river': 'river' };
@@ -139,3 +139,58 @@ function initMap() {
 }
 
 initMap();
+function use_results()
+{
+    const results = JSON.parse(localStorage.getItem("factoryResults"))
+    if (results)
+    {
+        const text1=document.getElementById("textcontent1")
+        text1.textContent =results[0]
+        const text2=document.getElementById("textcontent2")
+        text2.textContent =results[1]
+        const text3=document.getElementById("textcontent3")
+        text3.textContent =results[2]
+        const text4=document.getElementById("textcontent4")
+        text4.textContent =results[3]
+        const text5=document.getElementById("textcontent5")
+        text5.textContent =results[4] 
+        const text6=document.getElementById("textcontent6")
+        text6.textContent =results[5] 
+        //const text7=document.getElementById("textcontent7")
+        //text7.textContent =results[6] 
+        
+    }
+    const images = JSON.parse(localStorage.getItem("images"))
+    if (images)
+    {
+        const img1=document.getElementById("img1")
+        img1.src=images[0]
+        const img2=document.getElementById("img2")
+        img2.src=images[1]
+        const img3=document.getElementById("img3")
+        img3.src=images[2]
+        const img4=document.getElementById("img4")
+        img4.src=images[3]
+        
+    }
+    const emissions = JSON.parse(localStorage.getItem("emissions"))
+    if (emissions)
+    {
+        if (emissions[0] < emissions[1])
+        {
+        const bar1=document.getElementById("yourfactory")
+        var heightofbar = (emissions[0] / emissions[1]) * 30
+        bar1.style.height = `${heightofbar}rem`
+        const bar2=document.getElementById("averagefactory")
+        bar2.style.height="30rem"
+        }
+        else
+        {
+        const bar1=document.getElementById("yourfactory")
+        const bar2=document.getElementById("averagefactory")
+        var heightofbar = (emissions[1] / emissions[0]) * 30
+        bar2.style.height = `${heightofbar}rem`
+        bar1.style.height="30rem"
+        }
+        }
+}  
