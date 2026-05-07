@@ -172,21 +172,21 @@ Building a factory in a forest initiates significant, long-term changes to the l
     selector3 = document.getElementById("kilde")
     if (selector3.value == "Norway")
     {
-        liste_over_results.push("Electric car factories (OEMs) get their supplies from a complex, global, multi-tiered supply chain that begins with mining and ends with battery assembly, heavily dominated by manufacturers in China, Japan, and South Korea. The supply chain is structured into three main stages: upstream (raw materials), midstream (refining and components), and downstream (assembly)." + "you answered Norway, but we havent filled in this text yet")
+        liste_over_results.push("Electric car factories (OEMs) get their supplies from a complex, global, multi-tiered supply chain that begins with mining and ends with battery assembly, heavily dominated by manufacturers in China, Japan, and South Korea. The supply chain is structured into three main stages: upstream (raw materials), midstream (refining and components), and downstream (assembly)." + " If you were to source resources domestically (from Norway) then that would typically make the raw materials pricier, especially considering what raw materials you can find in Norway. Though the price would increase, the emissions would be much lower than many other options, and cause of the shorter distance travel costs would also decrease.")
         //utslipp += 10*size
         //fabrikkpris += 2500*size
         img_list.push("/assets/Norway.png")
     }
     else if (selector3.value == "Germany")
     {
-        liste_over_results.push("Electric car factories (OEMs) get their supplies from a complex, global, multi-tiered supply chain that begins with mining and ends with battery assembly, heavily dominated by manufacturers in China, Japan, and South Korea. The supply chain is structured into three main stages: upstream (raw materials), midstream (refining and components), and downstream (assembly)." + "you answered Germany, but we havent filled in this text yet")
+        liste_over_results.push("Electric car factories (OEMs) get their supplies from a complex, global, multi-tiered supply chain that begins with mining and ends with battery assembly, heavily dominated by manufacturers in China, Japan, and South Korea. The supply chain is structured into three main stages: upstream (raw materials), midstream (refining and components), and downstream (assembly)." + " If you were to source resources from Germany, then that would typically make the raw materials, less costly, although not by a very large margin. It would also reduce travel costs and emissions compared to a lot of other places, because of the shorter travel distance.")
         //utslipp += 1*size
         //fabrikkpris += 250*size
         img_list.push("/assets/Germany.jpg")
     }
     else if (selector3.value == "Brazil")
     {
-        liste_over_results.push("Electric car factories (OEMs) get their supplies from a complex, global, multi-tiered supply chain that begins with mining and ends with battery assembly, heavily dominated by manufacturers in China, Japan, and South Korea. The supply chain is structured into three main stages: upstream (raw materials), midstream (refining and components), and downstream (assembly)." + "you answered Brazil, but we havent filled in this text yet")
+        liste_over_results.push("Electric car factories (OEMs) get their supplies from a complex, global, multi-tiered supply chain that begins with mining and ends with battery assembly, heavily dominated by manufacturers in China, Japan, and South Korea. The supply chain is structured into three main stages: upstream (raw materials), midstream (refining and components), and downstream (assembly)." + " If you were to source resources from Brazil, that would typically make the raw materials cheaper but increase transport cost and distance. The CO2 emissions would also significantly increase cause of the increase in travel distance.")
         //utslipp += 1*size
         //fabrikkpris += 250*size
         img_list.push("/assets/Brazil.jpg")
