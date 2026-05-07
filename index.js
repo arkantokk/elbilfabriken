@@ -107,7 +107,7 @@ Building a factory in a forest initiates significant, long-term changes to the l
     if (selector2.value == "yes")
     {
         text_list.push("Electric car factories manage waste through a combination of advanced recycling, circular economy practices, and strict water management, aiming to minimize the environmental impact of manufacturing high-voltage batteries and vehicles." +
-" Key strategies include managing hazardous waste from battery production, recycling manufacturing scraps, and increasingly adopting closed-loop systems to reuse materials")
+" Key strategies include managing hazardous waste from battery productions, recycling manufacturing scraps, and increasingly adopting closed-loop systems to reuse materials")
         img_list.push("/assets/waste.jpg")
     }
     else if (selector2.value == "no")
@@ -118,17 +118,17 @@ Building a factory in a forest initiates significant, long-term changes to the l
     const selector3 = document.getElementById("kilde")
     if (selector3.value == "Norway")
     {
-        text_list.push("you answered Norway, but we havent filled in this text yet")
+        text_list.push("Electric car factories (OEMs) get their supplies from a complex, global, multi-tiered supply chain that begins with mining and ends with battery assembly, heavily dominated by manufacturers in China, Japan, and South Korea. The supply chain is structured into three main stages: upstream (raw materials), midstream (refining and components), and downstream (assembly). " + "If you were to source resources domestically (from Norway) then that would typically make the raw materials pricier, especially considering what raw materials you can find in Norway. Though the price would increase, the emissions would be much lower than many other options, and cause of the shorter distance travel costs would also decrease.")
         img_list.push("/assets/Norway.png")
     }
     else if (selector3.value == "Germany")
     {
-        text_list.push("you answered Germany, but we havent filled in this text yet")
+        text_list.push("Electric car factories (OEMs) get their supplies from a complex, global, multi-tiered supply chain that begins with mining and ends with battery assembly, heavily dominated by manufacturers in China, Japan, and South Korea. The supply chain is structured into three main stages: upstream (raw materials), midstream (refining and components), and downstream (assembly). " + "If you were to source resources from Germany, then that would typically make the raw materials, less costly, although not by a very large margin. It would also reduce travel costs and emissions compared to a lot of other places, because of the shorter travel distance.")
         img_list.push("/assets/Germany.jpg")
     }
     else if (selector3.value == "Brazil")
     {
-        text_list.push("you answered Brazil, but we havent filled in this text yet")
+        text_list.push("Electric car factories (OEMs) get their supplies from a complex, global, multi-tiered supply chain that begins with mining and ends with battery assembly, heavily dominated by manufacturers in China, Japan, and South Korea. The supply chain is structured into three main stages: upstream (raw materials), midstream (refining and components), and downstream (assembly). " + "If you were to source resources from Brazil, that would typically make the raw materials cheaper but increase transport cost and distance. The CO2 emissions would also significantly increase cause of the increase in travel distance.")
         img_list.push("/assets/Brazil.jpg")
     }
 
@@ -152,7 +152,7 @@ Building a factory in a forest initiates significant, long-term changes to the l
     }
     else if (size > 2500){
         if (size > 10000){
-            text_list.push(`Its a large factory, but we havent filled in this text yet`)
+            text_list.push(`A large-scale factory significantly boosts production, increases efficiency through specialized labor, and lowers unit costs, but it requires higher operating costs, larger Minimum Order Quantities (MOQs), and creates a more rigid, complex, and slow-moving process.`)
             img_list.push("/assets/by.jpg")
             gjennomsnittsutslipp = 100000
             if (selector3.value == "Norway")
