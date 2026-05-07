@@ -31,34 +31,177 @@ submitButton.addEventListener("click", (e) => {
     const results = generate_factory_data(selectedAreaType);
     localStorage.setItem("factoryResults", JSON.stringify(results[0]));
     localStorage.setItem("images", JSON.stringify(results[1]));
+    localStorage.setItem("emissions", JSON.stringify(results[2]))
     window.location.href = "results.html";
 });
 
 function generate_factory_data(areaType) {
+    let utslipp = 0;
     let text_list = [];
     let img_list = [];
     const size = parseInt(sizeInput.value) || 0;
 
     const descriptions = {
-        city: ["Urban factories offer economic benefits and jobs, but the high population density means emissions pose a significant respiratory health risk.", "/assets/by.jpg"],
-        mountain: ["High-altitude sites provide natural insulation and security, but transport and logistics energy costs are substantially higher.", "/assets/mountain.jpg"],
-        forest: ["Building in a forest results in direct habitat loss, though modern sustainable designs can attempt to harmonize with the local ecosystem.", "/assets/forest.jpg"],
-        river: ["Coastal or river sites provide essential cooling and shipping routes, but industrial activity risks polluting vital water ecosystems.", "/assets/river.jpg"]
+        city: [`Building a factory next to a city acts as a catalyst for both economic development and environmental/social disruption. It creates jobs, lowers commuting times, and increases tax revenue, but it often brings pollution, traffic congestion, and lower quality of life to nearby residential areas.
+\nDownsides:
+\n•	Pollution
+\n•	Traffic congestion
+\n•	CO2 output from a factory located next to a city directly impacts the local environment and population, contributing to both immediate air quality issues and long-term global climate change. While co2 itself is a colorless, odorless gas, it is usually emitted alongside other pollutants—such as nitrogen oxides (Nox) sulfur dioxide (so2), and particulate matter (PM2.5)—that cause smog, respiratory issues, and cardiovascular problems in surrounding residential areas.
+\nBenefits:
+\n•	Economic development
+\n•	Environmental/social disruption
+\n•	It creates jobs
+\n•	Lowers commuting times
+\n•	Increases tax revenue
+ `, "/assets/by.jpg"],
+        mountain: [`Building a factory in or on a mountain presents unique engineering challenges, high logistical costs, and significant environmental considerations, but it can offer benefits such as natural security, stable temperatures, and high-profit margins due to specialized production.
+
+\nDownsides:
+\n•	High logistics costs
+\n•	Significant environmental considerations
+\nBenefits:
+\n•	Natural security
+\n•	Stable temperature
+\n•	Specialized production
+`, "/assets/mountain.jpg"],
+        forest: [`
+Building a factory in a forest initiates significant, long-term changes to the local ecosystem, ranging from habitat destruction to altered air and water quality. While conventional construction typically damages these environments, modern "factory-as-a-forest" approaches aim to blend industrial activity with ecological restoration. 
+\nDownsides:
+\n•	Long-term changes to the local ecosystem, including: Habitat destruction and Altered air and water quality
+\n•	Modern "factory-as-a-forest" approaches aim to blend industrial activity with ecological restoration
+\nBenefits: 
+\n•	The trees in the surrounding forest absorb a portion of the factory's CO2 emissions. Through photosynthesis
+`, "/assets/forest.jpg"],
+        river: [`Building a factory in a river generally serves logistical and operational needs—such as water access and transport—but frequently leads to significant environmental degradation, increased pollution, and higher risks of flooding for surrounding areas. While it can bring economic growth and jobs, these benefits are often overshadowed by long-term damage to ecosystems and public health.
+\nDownsides:
+\n•	Logistical and operational needs, including: Water access and Transport
+\n•	Significant environmental degradation
+\n•	Increased pollution
+\n•	Higher risks of flooding the surrounding areas
+\n•	Long-term damage to ecosystems and public health
+\n•	CO2 emissions from a factory in a river valley tend to become trapped near the ground due to the surrounding topography, which restricts horizontal wind dispersion. This creates localized high-concentration areas, especially during temperature inversions where cool, dense air (carrying the CO2) is capped by warmer air above. 
+\nBenefits:
+\n•	Economic growth and jobs
+`, "/assets/river.jpg"]
     };
     
     text_list.push(descriptions[areaType][0]);
     img_list.push(descriptions[areaType][1]);
 
-    // Tech Logic
-    const hasFilter = document.getElementById("luftFiltrasjon").value === "yes";
-    text_list.push(hasFilter ? "Advanced air filtration is active, capturing most pollutants before they enter the atmosphere." : "Without filtration, your factory releases raw industrial byproducts directly into the local environment.");
-    img_list.push(hasFilter ? "/assets/airfilter.jpg" : "/assets/noairfilter.webp");
 
-    // CO2 Calculation
-    const utslipp = size * 1.55; 
-    text_list.push(`Annual CO2 Output: ${utslipp.toLocaleString()} tons. The industry average for this size is approximately ${gjennomsnittsutslipp.toLocaleString()} tons.`);
 
-    return [text_list, img_list];
+    const  selector1 = document.getElementById("luftFiltrasjon")
+    if (selector1.value == "yes")
+    {
+        text_list.push("Installing air filtration in a factory transforms the industrial environment into a healthier, more efficient, and compliant workplace by removing hazardous dust, smoke, oil mists, and fumes. A proper system protects both human health and machinery, leading to fewer breakdowns, higher productivity, and lower operating costs.")
+
+        img_list.push("/assets/airfilter.jpg")
+    }
+    else if (selector1.value == "no")
+    {
+        text_list.push("Not having air filtration in a factory leads to severe, long-term consequences that affect employee health, equipment longevity, product quality, and regulatory compliance. Without filtration, industrial environments—which are often 5 to 10 times more polluted than outdoor air—become hazardous environments, leading to accumulated dust, oil mist, and toxic contaminants in the air.")
+
+        img_list.push("/assets/noairfilter.jpg")
+    }
+    const selector2 = document.getElementById("avfall")
+    if (selector2.value == "yes")
+    {
+        text_list.push("Electric car factories manage waste through a combination of advanced recycling, circular economy practices, and strict water management, aiming to minimize the environmental impact of manufacturing high-voltage batteries and vehicles." +
+" Key strategies include managing hazardous waste from battery production, recycling manufacturing scraps, and increasingly adopting closed-loop systems to reuse materials")
+        img_list.push("/assets/waste.jpg")
+    }
+    else if (selector2.value == "no")
+    {
+        text_list.push("Failing to implement proper waste management in an electric vehicle (EV) factory causes significant environmental, safety, and regulatory risks, primarily stemming from the toxic components involved in battery manufacturing and electronics. Without appropriate disposal, heavy metals and hazardous chemicals can leach into water sources and soil, creating long-term contamination. ")
+        img_list.push("/assets/nowaster.jpg")
+    }
+    const selector3 = document.getElementById("kilde")
+    if (selector3.value == "Norway")
+    {
+        text_list.push("you answered Norway, but we havent filled in this text yet")
+        img_list.push("/assets/Norway.png")
+    }
+    else if (selector3.value == "Germany")
+    {
+        text_list.push("you answered Germany, but we havent filled in this text yet")
+        img_list.push("/assets/Germany.jpg")
+    }
+    else if (selector3.value == "Brazil")
+    {
+        text_list.push("you answered Brazil, but we havent filled in this text yet")
+        img_list.push("/assets/Brazil.jpg")
+    }
+
+
+    if (size < 2500){
+        text_list.push(`Having a small-sized factory—often defined as a micro-factory or small-scale manufacturing unit—presents a mix of strategic advantages and operational constraints. Small factories often benefit from high flexibility and lower overhead, but they face limitations in production capacity, efficiency, and resource access.`)
+        img_list.push("/assets/by.jpg")
+        gjennomsnittsutslipp = 14000
+            if (selector3.value == "Norway")
+            {
+                utslipp += 120
+            }
+            else if (selector3.value == "Germany")
+            {
+                utslipp += 168
+            }
+            else if (selector3.value == "Brazil")
+            {
+                utslipp += 780
+            }
+    }
+    else if (size > 2500){
+        if (size > 10000){
+            text_list.push(`Its a large factory, but we havent filled in this text yet`)
+            img_list.push("/assets/by.jpg")
+            gjennomsnittsutslipp = 100000
+            if (selector3.value == "Norway")
+            {
+                utslipp += 1200
+            }
+            else if (selector3.value == "Germany")
+            {
+                utslipp += 1680
+            }
+            else if (selector3.value == "Brazil")
+            {
+                utslipp += 7800
+            }
+        }
+        else {
+            text_list.push(`A medium-sized factory (typically defined as having 50–250 employees and 10,000–50,000 square feet) operates as a balance between the agility of a small workshop and the capability of a large plant, acting as a "middle ground" for growth.`)
+            img_list.push("/assets/by.jpg")
+            gjennomsnittsutslipp = 50000
+            if (selector3.value == "Norway")
+            {
+                utslipp += 480
+            }
+            else if (selector3.value == "Germany")
+            {
+                utslipp += 672
+            }
+            else if (selector3.value == "Brazil")
+            {
+                utslipp += 3120
+            }
+        }
+        
+    }
+    utslipp += size*6 //yearly emissions per square meter, by taking avergae car produced per m^2 multiplied by 10 for the emission per prodcution
+    utslipp += size*0.2 //yearly emissions per swaure meter for stuff like heating, osv...
+    utslipp = Math.round(utslipp)
+    let utslippmin = 0;
+    if (utslipp < gjennomsnittsutslipp) {
+        utslippmin = gjennomsnittsutslipp - utslipp
+        text_list.push(`Your factory put out ${utslipp} ton CO2 per year, thats ${utslippmin} ton less than the average electric car factory of a similar size, most factories around that size put out ${gjennomsnittsutslipp} ton CO2 per year on average.`)
+    }
+    else {
+        utslippmin = utslipp - gjennomsnittsutslipp
+        text_list.push(`Your factory put out ${utslipp} ton CO2 per year, thats ${utslippmin} ton more than the average electric car factory of a similar size, most factories around that size put out ${gjennomsnittsutslipp} ton CO2 per year on average.`)
+    }
+    var liste3 =[utslipp, gjennomsnittsutslipp]
+    var list1og2og3 = [text_list, img_list, liste3]
+    return list1og2og3
 }
 
 // --- Smarter Geographic Detection ---
