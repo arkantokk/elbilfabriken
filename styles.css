@@ -18,7 +18,7 @@
 }
 
 body {
-    background-color: var(--slate-50);
+    background-color: #d9dba0;
     color: white;
     font-family: "lora";
     margin:2rem;
