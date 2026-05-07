@@ -57,6 +57,59 @@ function generate_factory_data(areaType) {
     // CO2 Calculation
     const utslipp = size * 1.55; 
     text_list.push(`Annual CO2 Output: ${utslipp.toLocaleString()} tons. The industry average for this size is approximately ${gjennomsnittsutslipp.toLocaleString()} tons.`);
+    selector1 = document.getElementById("luftFiltrasjon")
+    if (selector1.value == "yes")
+    {
+        liste_over_results.push("Installing air filtration in a factory transforms the industrial environment into a healthier, more efficient, and compliant workplace by removing hazardous dust, smoke, oil mists, and fumes. A proper system protects both human health and machinery, leading to fewer breakdowns, higher productivity, and lower operating costs.")
+        //utslipp += 10*size
+        //fabrikkpris += 2500*size
+        img_list.push("/assets/airfilter.jpg")
+    }
+    else if (selector1.value == "no")
+    {
+        liste_over_results.push("Not having air filtration in a factory leads to severe, long-term consequences that affect employee health, equipment longevity, product quality, and regulatory compliance. Without filtration, industrial environments—which are often 5 to 10 times more polluted than outdoor air—become hazardous environments, leading to accumulated dust, oil mist, and toxic contaminants in the air.")
+        //utslipp += 1*size
+        //fabrikkpris += 250*size
+        img_list.push("/assets/noairfilter.jpg")
+    }
+    selector2 = document.getElementById("avfall")
+    if (selector2.value == "yes")
+    {
+        liste_over_results.push("Electric car factories manage waste through a combination of advanced recycling, circular economy practices, and strict water management, aiming to minimize the environmental impact of manufacturing high-voltage batteries and vehicles." +
+" Key strategies include managing hazardous waste from battery production, recycling manufacturing scraps, and increasingly adopting closed-loop systems to reuse materials")
+        //utslipp += 10*size
+        //fabrikkpris += 2500*size
+        img_list.push("/assets/waste.jpg")
+    }
+    else if (selector2.value == "no")
+    {
+        liste_over_results.push("Failing to implement proper waste management in an electric vehicle (EV) factory causes significant environmental, safety, and regulatory risks, primarily stemming from the toxic components involved in battery manufacturing and electronics. Without appropriate disposal, heavy metals and hazardous chemicals can leach into water sources and soil, creating long-term contamination. ")
+        //utslipp += 1*size
+        //fabrikkpris += 250*size
+        img_list.push("/assets/nowaster.jpg")
+    }
+    selector3 = document.getElementById("kilde")
+    if (selector3.value == "Norway")
+    {
+        liste_over_results.push("Electric car factories (OEMs) get their supplies from a complex, global, multi-tiered supply chain that begins with mining and ends with battery assembly, heavily dominated by manufacturers in China, Japan, and South Korea. The supply chain is structured into three main stages: upstream (raw materials), midstream (refining and components), and downstream (assembly)." + " If you were to source resources domestically (from Norway) then that would typically make the raw materials pricier, especially considering what raw materials you can find in Norway. Though the price would increase, the emissions would be much lower than many other options, and cause of the shorter distance travel costs would also decrease.")
+        //utslipp += 10*size
+        //fabrikkpris += 2500*size
+        img_list.push("/assets/Norway.png")
+    }
+    else if (selector3.value == "Germany")
+    {
+        liste_over_results.push("Electric car factories (OEMs) get their supplies from a complex, global, multi-tiered supply chain that begins with mining and ends with battery assembly, heavily dominated by manufacturers in China, Japan, and South Korea. The supply chain is structured into three main stages: upstream (raw materials), midstream (refining and components), and downstream (assembly)." + " If you were to source resources from Germany, then that would typically make the raw materials, less costly, although not by a very large margin. It would also reduce travel costs and emissions compared to a lot of other places, because of the shorter travel distance.")
+        //utslipp += 1*size
+        //fabrikkpris += 250*size
+        img_list.push("/assets/Germany.jpg")
+    }
+    else if (selector3.value == "Brazil")
+    {
+        liste_over_results.push("Electric car factories (OEMs) get their supplies from a complex, global, multi-tiered supply chain that begins with mining and ends with battery assembly, heavily dominated by manufacturers in China, Japan, and South Korea. The supply chain is structured into three main stages: upstream (raw materials), midstream (refining and components), and downstream (assembly)." + " If you were to source resources from Brazil, that would typically make the raw materials cheaper but increase transport cost and distance. The CO2 emissions would also significantly increase cause of the increase in travel distance.")
+        //utslipp += 1*size
+        //fabrikkpris += 250*size
+        img_list.push("/assets/Brazil.jpg")
+    }
 
     return [text_list, img_list];
 }
